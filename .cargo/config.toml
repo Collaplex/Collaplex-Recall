@@ -1,0 +1,7 @@
+# 全局 config 指向 repo.lan，当前解析不了；项目内局部走 rsproxy。
+# 全局配置不动，项目删掉也不影响别的仓库。
+[source.crates-io]
+replace-with = "rsproxy"
+
+[source.rsproxy]
+registry = "sparse+https://rsproxy.cn/index/"

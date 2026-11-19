@@ -1,0 +1,403 @@
+<mxfile host="Electron" modified="2026-11-16T10:00:00.000Z" agent="Claude" version="24.0.0">
+  <diagram name="1-架构总览" id="pg1">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1240" pageHeight="960" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="p1_b1" value="① 权威层 · 只有人能写" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=12;spacingTop=8;fillColor=#fafafa;strokeColor=#c0c0c0;fontStyle=1;fontSize=13;fontColor=#777777;" vertex="1" parent="1">
+          <mxGeometry x="40" y="30" width="1140" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_b2" value="② 笔记库 · 原文 · git 是唯一事实源" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=12;spacingTop=8;fillColor=#fafafa;strokeColor=#c0c0c0;fontStyle=1;fontSize=13;fontColor=#777777;" vertex="1" parent="1">
+          <mxGeometry x="40" y="155" width="1140" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_b3" value="③ 派生层 · 任何 commit 都必须能完整重建" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=12;spacingTop=8;fillColor=#fafafa;strokeColor=#c0c0c0;fontStyle=1;fontSize=13;fontColor=#777777;" vertex="1" parent="1">
+          <mxGeometry x="40" y="315" width="1140" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_b4" value="④ 运行时 · 每轮从零重建，不留累积" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=12;spacingTop=8;fillColor=#fafafa;strokeColor=#c0c0c0;fontStyle=1;fontSize=13;fontColor=#777777;" vertex="1" parent="1">
+          <mxGeometry x="40" y="525" width="1140" height="230" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p1_user" value="用户" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="520" y="55" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p1_git" value="笔记库&lt;br&gt;（git 仓库 · 权威版本）" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="210" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_inbox" value="收件箱（可选 · 非权威）&lt;br&gt;人写→收件箱；/inbox 审核后 /promote 提升" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=#f2f8ee;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="730" y="210" width="190" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p1_mem" value="记忆库 · 派生 · 可审可删 · 建议单独 git 版本化&lt;br&gt;别名 / 记忆条 / 经验 / 图边（实测：别名 M1 top1 3/6→6/6）" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fillColor=#fff8e1;strokeColor=#d6b656;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="355" width="520" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_alias" value="别名表&lt;br&gt;词 → 实体" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="220" y="395" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_memo" value="记忆条&lt;br&gt;文本 · 出处 · 置信" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="395" y="395" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_exp" value="经验（候选区）&lt;br&gt;晋升看采纳/引用/纠正事件；相关性代理仅临时" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="570" y="395" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_vec" value="向量索引&lt;br&gt;（笔记的派生视图）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="790" y="375" width="180" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p1_skill" value="恒定 skill（稳定前缀 · 可缓存）&lt;br&gt;只放稳定规则；晋升经验进动态块，避免破坏前缀" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="560" width="180" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_budget" value="预算管理器&lt;br&gt;超预算分批生成（不压缩）&lt;br&gt;skill/记忆/片段/输出预留" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="330" y="560" width="170" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_stack" value="二层表（内存）&lt;br&gt;会话指针 · 本轮结果 · 每轮 JSONL 落盘" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="550" y="560" width="170" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_model" value="本地模型&lt;br&gt;（无写原语）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="380" y="650" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_out" value="答案 + 引用 [n]&lt;br&gt;+ 补丁提案（人确认才落）&lt;br&gt;已实现：/propose → diff → /apply" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="700" y="700" width="260" height="55" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p1_legend" value="权限铁律&lt;br&gt;&lt;br&gt;1 · 模型对笔记库：只读。工具白名单只有 search / read / propose，结构上不提供任何写原语。&lt;br&gt;2 · 模型对记忆库：答题时不可写，只能走异步 delta 通道（见第 3 页）。&lt;br&gt;3 · 笔记的每一次修改都必须由人执行，git 负责记录与回滚。&lt;br&gt;4 · 索引、记忆、二层表都是派生数据——坏了不算事故，从任意 commit 重建即可。" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=14;spacingTop=10;fillColor=#ffffff;strokeColor=#b85450;dashed=0;fontSize=12;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="40" y="790" width="1140" height="130" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p1_e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;fontSize=12;" edge="1" parent="1" source="p1_user" target="p1_git">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_e1l" value="写 / 读" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;" vertex="1" connectable="0" parent="p1_e1">
+          <mxGeometry relative="1" x="-0.2" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;fontSize=12;strokeColor=#999999;" edge="1" parent="1" source="p1_user" target="p1_inbox">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_e2l" value="可选" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#999999;" vertex="1" connectable="0" parent="p1_e2">
+          <mxGeometry relative="1" x="-0.3" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p1_e3" value="派生" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.75;exitY=1;entryX=0.5;entryY=0;fontSize=12;" edge="1" parent="1" source="p1_git" target="p1_vec">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_e4" value="派生 + provenance（note 级兜底 + chunk 级）&lt;br&gt;chunk_hash 对重切块敏感" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;fontSize=12;" edge="1" parent="1" source="p1_git" target="p1_mem">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p1_e5" value="检索" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.25;entryY=0;fontSize=12;" edge="1" parent="1" source="p1_mem" target="p1_stack">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_e6" value="工具内部：混合召回 + 精排" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.85;entryY=0;fontSize=12;" edge="1" parent="1" source="p1_vec" target="p1_stack">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p1_e7" value="稳定前缀" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.25;entryY=0;fontSize=11;" edge="1" parent="1" source="p1_skill" target="p1_model">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_e8" value="截断" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.4;entryY=0;fontSize=11;" edge="1" parent="1" source="p1_budget" target="p1_model">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_e9" value="注入" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.7;entryY=0;fontSize=11;" edge="1" parent="1" source="p1_stack" target="p1_model">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_e10" value="生成" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;fontSize=12;" edge="1" parent="1" source="p1_model" target="p1_out">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p1_e11" value="异步 delta 写回（第 3 页）" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;strokeColor=#9673a6;fontColor=#9673a6;exitX=1;exitY=0.15;entryX=1;entryY=0.9;fontSize=11;" edge="1" parent="1" source="p1_model" target="p1_mem">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="760" y="659" />
+              <mxPoint x="760" y="467" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p1_e12" value="⛔ 对笔记库无写权限" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;strokeColor=#b85450;fontColor=#b85450;fontStyle=1;exitX=0;exitY=0.5;entryX=0;entryY=0.5;fontSize=12;" edge="1" parent="1" source="p1_model" target="p1_git">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="60" y="680" />
+              <mxPoint x="60" y="240" />
+            </Array>
+            <mxPoint x="70" y="0" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <diagram name="2-提问链路" id="pg2">
+    <mxGraphModel dx="1100" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1060" pageHeight="1160" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="p2_n1" value="用户提问" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="380" y="40" width="240" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_n2" value="读二层表（会话指针）&lt;br&gt;上轮命中 id · 已解指代" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="380" y="130" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_n3" value="判题改写（小模型）&lt;br&gt;意图 · 实体 · 查询词 · 未知简称&lt;br&gt;实测 0.9–1.5s / ≤100 token" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="380" y="230" width="240" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_n4" value="别名展开" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="380" y="340" width="240" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_d1" value="命中？" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="420" y="425" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_n5" value="记忆检索&lt;br&gt;确定性查表 + 图一跳扩展（weight × decay）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="380" y="540" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_n6" value="工具调用 search(query)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="380" y="640" width="240" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_n7" value="上下文组装&lt;br&gt;模型选材 + 程序分批；选 &lt;2 条回退检索前 6" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="380" y="740" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_n8" value="生成（带引用 [n]）&lt;br&gt;+ 引用校验 / 严格拒答" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="380" y="850" width="240" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_n9" value="一次性渲染答案&lt;br&gt;（实测决定：不流式、不展示思考）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="380" y="945" width="240" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_n10" value="回填二层表（更新指针）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="380" y="1035" width="240" height="55" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p2_s3" value="输入：恒定 skill + 会话指针 + 当前问题&lt;br&gt;输出：结构化 ≤100 token（实测 31–37 token）" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="700" y="215" width="280" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_s4b" value="反问：你说的 X 是指 Y 吗？" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="680" y="425" width="260" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_s4c" value="立即写入别名表&lt;br&gt;（内联学习，不等答完）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="680" y="505" width="260" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_s6" value="混合召回：向量 + 两段式 BM25（α 按语料校准，默认 0.05）&lt;br&gt;可选交叉编码器精排（20 条，默认关）&lt;br&gt;实测：真实笔记精排变差、DuRetrieval 略好" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="700" y="615" width="280" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_s7" value="恒定 skill 前缀（可缓存）&lt;br&gt;→ 动态记忆/经验块 → 工具结果（尾部，可截断）&lt;br&gt;指针用于改写，不单独拼块" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=11;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="700" y="725" width="280" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_s9" value="固定/分批流水线（无 tool calling）&lt;br&gt;实测：判题 1–1.5s + 选材 0.3–1.2s + 校验 0.8–1.5s + 生成 1–13s/批" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=#ffffff;strokeColor=#999999;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="100" y="640" width="220" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p2_e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;fontSize=12;" edge="1" parent="1" source="p2_n1" target="p2_n2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;fontSize=12;" edge="1" parent="1" source="p2_n2" target="p2_n3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;fontSize=12;" edge="1" parent="1" source="p2_n3" target="p2_n4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_e3b" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;fontSize=12;strokeColor=#999999;" edge="1" parent="1" source="p2_n3" target="p2_s3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;fontSize=12;" edge="1" parent="1" source="p2_n4" target="p2_d1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_e5" value="否" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;fontSize=12;fontColor=#b85450;" edge="1" parent="1" source="p2_d1" target="p2_s4b">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;fontSize=12;" edge="1" parent="1" source="p2_s4b" target="p2_s4c">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_e6b" value="回到检索" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;strokeColor=#d6b656;exitX=0;exitY=0.5;entryX=1;entryY=0.3;fontSize=11;" edge="1" parent="1" source="p2_s4c" target="p2_n5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_e7" value="是" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;fontSize=12;" edge="1" parent="1" source="p2_d1" target="p2_n5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_e8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;fontSize=12;" edge="1" parent="1" source="p2_n5" target="p2_n6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_e8b" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;fontSize=12;strokeColor=#999999;" edge="1" parent="1" source="p2_n6" target="p2_s6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_e9" value="≤3 轮" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;fontSize=12;" edge="1" parent="1" source="p2_n6" target="p2_n7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_e10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;fontSize=12;strokeColor=#999999;" edge="1" parent="1" source="p2_n7" target="p2_s7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_e11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;fontSize=12;" edge="1" parent="1" source="p2_n7" target="p2_n8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_e12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;fontSize=12;" edge="1" parent="1" source="p2_n8" target="p2_n9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_e13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;fontSize=12;" edge="1" parent="1" source="p2_n9" target="p2_n10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_e14" value="下一轮（内容重建，指针还在）" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;strokeColor=#999999;fontColor=#999999;exitX=0;exitY=0.5;entryX=0;entryY=0.5;fontSize=11;" edge="1" parent="1" source="p2_n10" target="p2_n1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="180" y="1062" />
+              <mxPoint x="180" y="65" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p2_e15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;exitX=0.5;exitY=0.5;entryX=0;entryY=0.5;fontSize=12;strokeColor=#999999;" edge="1" parent="1" source="p2_s9" target="p2_n6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <diagram name="3-整理链路" id="pg3">
+    <mxGraphModel dx="1200" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1240" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="p3_b1" value="异步整理 · 不占用户时间 · pending delta → merge&lt;br&gt;（实测：每轮回答后立即后台触发）" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=12;spacingTop=8;fillColor=#fafafa;strokeColor=#c0c0c0;fontStyle=1;fontSize=13;fontColor=#777777;" vertex="1" parent="1">
+          <mxGeometry x="30" y="30" width="1160" height="470" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_b2" value="离线 · 真正贵的计算放这里（会话空闲时跑）" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=12;spacingTop=8;fillColor=#fafafa;strokeColor=#c0c0c0;fontStyle=1;fontSize=13;fontColor=#777777;" vertex="1" parent="1">
+          <mxGeometry x="30" y="520" width="1160" height="155" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_b3" value="笔记库侧 · 只有人写 · git 记录一切" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=12;spacingTop=8;fillColor=#fafafa;strokeColor=#c0c0c0;fontStyle=1;fontSize=13;fontColor=#777777;" vertex="1" parent="1">
+          <mxGeometry x="30" y="720" width="1160" height="240" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p3_m1" value="回答结束&lt;br&gt;立即 / 每 N 轮 / 空闲批处理（已实现）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="90" width="210" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_m2" value="提炼（小模型 · 输出有上限）&lt;br&gt;≤3 记忆 / 1 经验 / 5 别名；实测：需程序近义去重" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="190" width="210" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_a1" value="别名表（冲突检测）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="295" width="210" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_a2" value="记忆条（去重 · 时间戳）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="350" width="210" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_a3" value="经验 → 候选区&lt;br&gt;晋升看采纳/引用/纠正；词项相关代理仅临时" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="405" width="210" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_m4" value="校验 / 去重 · 冲突 · provenance&lt;br&gt;note 级兜底 + chunk 级（chunk_hash 对重切块敏感）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="330" y="330" width="210" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_m5" value="写 pending delta（不直接改主库）&lt;br&gt;提交点 merge，崩溃可补跑" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="330" y="435" width="210" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_m6" value="提交点合并" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="590" y="435" width="170" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_m7" value="记忆库&lt;br&gt;（文本可审可删 · 建议 git 版本化）" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="810" y="420" width="200" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_m8" value="恒定 skill（稳定规则）&lt;br&gt;经验晋升进动态块，不拼进稳定前缀" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="810" y="90" width="200" height="55" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p3_o1" value="离线：衰减 · LTD · GC&lt;br&gt;实测：η=0.1、阈值 0.15，需 ≥2 次共引才扩展" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="810" y="570" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_o2" value="离线：敏感度分析（有限差分）&lt;br&gt;只扰动边权/打分阈值，不碰模型" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="530" y="565" width="230" height="65" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p3_p1" value="模型：补丁提案（diff）&lt;br&gt;只读笔记；输出 new_content + unified diff（已实现）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="765" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_p2" value="用户在 diff 界面确认&lt;br&gt;TUI /apply 才写文件；base_hash 校验（已实现）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="855" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_r1" value="用户编辑笔记" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="880" y="765" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_r2" value="git commit&lt;br&gt;TUI 启动比对 HEAD，变了自动 ingest（已实现）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="680" y="765" width="170" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_r3" value="比对 note/chunk 哈希&lt;br&gt;重切块会误伤（需 note 级兜底 / 稳定 chunk id）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="440" y="765" width="210" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_r4" value="不符 → 记忆降级 / 标记过期" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="440" y="855" width="210" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_r5" value="增量重建索引&lt;br&gt;按 chunk_hash 复用未变块（已实现）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="680" y="855" width="170" height="55" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p3_e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;fontSize=12;" edge="1" parent="1" source="p3_m1" target="p3_m2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;fontSize=12;" edge="1" parent="1" source="p3_m2" target="p3_a1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;fontSize=12;" edge="1" parent="1" source="p3_a1" target="p3_a2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;fontSize=12;" edge="1" parent="1" source="p3_a2" target="p3_a3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=0.5;entryX=0;entryY=0.5;fontSize=12;" edge="1" parent="1" source="p3_a1" target="p3_m4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=0.5;entryX=0;entryY=0.75;fontSize=12;" edge="1" parent="1" source="p3_a3" target="p3_m4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_e7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;fontSize=12;" edge="1" parent="1" source="p3_m4" target="p3_m5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_e8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;fontSize=12;" edge="1" parent="1" source="p3_m5" target="p3_m6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_e9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;fontSize=12;" edge="1" parent="1" source="p3_m6" target="p3_m7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_e10" value="复用通过才晋升" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;strokeColor=#9673a6;fontColor=#9673a6;exitX=0.5;exitY=0;entryX=1;entryY=0.5;fontSize=11;" edge="1" parent="1" source="p3_m7" target="p3_m8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="910" y="180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p3_e11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;strokeColor=#9673a6;exitX=0.5;exitY=1;entryX=0.5;entryY=0;fontSize=12;" edge="1" parent="1" source="p3_m7" target="p3_o1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_e12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;strokeColor=#9673a6;exitX=0;exitY=0.5;entryX=1;entryY=0.5;fontSize=12;" edge="1" parent="1" source="p3_m7" target="p3_o2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p3_e13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;fontSize=12;" edge="1" parent="1" source="p3_p1" target="p3_p2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_e14" value="唯一的笔记修改路径" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;strokeColor=#82b366;fontColor=#82b366;exitX=0.5;exitY=1;entryX=0.5;entryY=1;fontSize=11;" edge="1" parent="1" source="p3_p2" target="p3_r1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="160" y="930" />
+              <mxPoint x="980" y="930" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p3_e15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;fontSize=12;" edge="1" parent="1" source="p3_r1" target="p3_r2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_e16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;fontSize=12;" edge="1" parent="1" source="p3_r2" target="p3_r3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_e17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;fontSize=12;" edge="1" parent="1" source="p3_r3" target="p3_r4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_e18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;fontSize=12;" edge="1" parent="1" source="p3_r2" target="p3_r5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_e19" value="重提炼" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;strokeColor=#d79b00;fontColor=#d79b00;exitX=0;exitY=0.5;entryX=0.5;entryY=1;fontSize=11;" edge="1" parent="1" source="p3_r4" target="p3_m2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="300" y="882" />
+              <mxPoint x="300" y="270" />
+              <mxPoint x="165" y="270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

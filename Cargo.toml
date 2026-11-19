@@ -1,0 +1,27 @@
+[package]
+name = "collaplex-recall"
+version = "0.1.0"
+edition = "2024"
+description = "Collaplex Recall：本地优先的笔记记忆库（混合检索 + 记忆提炼 + 引用问答）"
+license = "Apache-2.0"
+
+[[bin]]
+name = "recall"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1"
+async-trait = "0.1"
+chrono = { version = "0.4", features = ["clock"] }
+clap = { version = "4", features = ["derive"] }
+futures-util = "0.3"
+ratatui = "0.29"
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls", "stream"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+similar = "2"
+sha2 = "0.10"
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "sync", "time"] }
+tokio-postgres = "0.7"
+unicode-width = "0.2"
+walkdir = "2"
